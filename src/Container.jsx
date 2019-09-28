@@ -7,8 +7,25 @@ import "./container.css"
 class Container extends Component {
   state = {
     count:0,
-    name:<p>mankind</p>
+   box:"box"
   };
+
+  handleIncrement=()=>{
+this.setState({count:this.state.count + 1})
+console.log(this.state.count)
+
+
+  };
+
+  handleDiv=()=>{
+    if (this.state.count<3)
+    {
+      return "box"
+    }
+    if(this.state.count>=3)
+    {return "cake"}
+   
+  }
   render() {
     return (
       <React.Fragment>
@@ -16,7 +33,10 @@ class Container extends Component {
         <Body/>
         <Footer /> */}
         <p>Hello world</p>
-        <button className="button">{this.state.count}</button>
+        <button className="button" onClick={this.handleIncrement}>{this.state.count}</button>
+        <div className={this.handleDiv()} >
+
+        </div>
       </React.Fragment>
     );
   }
